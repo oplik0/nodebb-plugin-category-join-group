@@ -7,12 +7,12 @@ $(document).ready(function() {
 	$(window).on('action:ajaxify.end', function() {
 
 		if (app.template === 'category' && app.user.uid) {
-			var unsubscribeHtml = '<button type="button" class="btn btn-default btn-warning unsubscribe"><i class="fa fa-pencil"></i> [[categorynotifications:unsubscribe]]</button>';
-			var subscribeHtml = '<button type="button" class="btn btn-default btn-success subscribe"><i class="fa fa-pencil"></i> [[categorynotifications:subscribe]]</button>';
+			var leaveHtml = '<button type="button" class="btn btn-default btn-warning leave"><i class="fa fa-pencil"></i> [[categorynotifications:leave]]</button>';
+			var joinHtml = '<button type="button" class="btn btn-default btn-success join"><i class="fa fa-pencil"></i> [[categorynotifications:join]]</button>';
 
 			var cid = ajaxify.data.cid;
 			require(['translator'], function (translator) {
-				socket.emit('plugins.categoryNotifications.isSubscribed', {cid: cid}, function(err, isSubscribed) {
+				socket.emit('plugins.categoryNotifications.isMember', {cid: cid}, function(err, isMember) {
 
 					function handleClick(className, method) {
 						$('.category').on('click', className, function() {
@@ -20,7 +20,7 @@ $(document).ready(function() {
 								if (err) {
 									return app.alertError(err.message);
 								}
-								var btn = className === '.subscribe' ? unsubscribeHtml : subscribeHtml;
+								var btn = className === '.join' ? leaveHtml : joinHtml;
 								translator.translate(btn, function(translated) {
 									$(className).replaceWith($(translated));
 								});
@@ -32,13 +32,13 @@ $(document).ready(function() {
 						return app.alertError(err.message);
 					}
 
-					var btn = isSubscribed ? unsubscribeHtml : subscribeHtml;
+					var btn = isMember ? leaveHtml : joinHtml;
 					translator.translate(btn, function (translated) {
 						$('[component="category/controls"]').prepend($(translated));
 					});
 
-					handleClick('.subscribe', 'plugins.categoryNotifications.subscribe');
-					handleClick('.unsubscribe', 'plugins.categoryNotifications.unsubscribe');
+					handleClick('.subscribe', 'plugins.categoryJoinGroup.join');
+					handleClick('.unsubscribe', 'plugins.categoryJoinGroup.leave');
 				});
 			});
 		}
