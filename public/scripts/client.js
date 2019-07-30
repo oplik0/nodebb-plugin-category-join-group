@@ -37,8 +37,8 @@ $(document).ready(function() {
 						$('[component="category/controls"]').prepend($(translated));
 					});
 
-					handleClick('.subscribe', 'plugins.categoryJoinGroup.join');
-					handleClick('.unsubscribe', 'plugins.categoryJoinGroup.leave');
+					handleClick('.join', 'plugins.categoryJoinGroup.join');
+					handleClick('.leave', 'plugins.categoryJoinGroup.leave');
 				});
 			});
 		}
