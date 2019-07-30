@@ -1,16 +1,11 @@
 <h1>Category Notifications</h1>
 
 
-<form class="form category-notifications-settings">
+<form class="form category-join-group-settings">
 	<div class="row">
 		<div class="col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label>Notification Setting</label>
-				<select id="notificationSetting" name="type" class="form-control" >
-					<option value="email">Send Email Only</option>
-					<option value="notification">Send Notification Only</option>
-					<option value="both">Send Both Email and Notification</option>
-				</select>
+				<label>Category Groups Setting</label>
 			</div>
 		</div>
 	</div>
@@ -22,14 +17,14 @@
 	'use strict';
 	/* globals app */
 	require(['settings'], function(Settings) {
-		Settings.load('category-notifications', $('.category-notifications-settings'), function(err, settings) {
+		Settings.load('category-join-group', $('.category-join-group-settings'), function(err, settings) {
 			if (err) {
 				return app.alertError(err.message);
 			}
 		});
 
 		$('#save').on('click', function() {
-			Settings.save('category-notifications', $('.category-notifications-settings'), function(err) {
+			Settings.save('category-join-group', $('.category-join-group-settings'), function(err) {
 				if (err) {
 					return app.alertError(err.message);
 				}
