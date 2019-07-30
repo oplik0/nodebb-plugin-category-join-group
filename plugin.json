@@ -6,6 +6,7 @@
     "hooks": [
         { "hook": "static:app.load", "method": "init"},
         { "hook": "filter:admin.header.build", "method": "adminMenu"},
+        { "hook": "action.user.delete", "method": "onUserDelete"}
     ],
     "scripts": [
 		"public/scripts/client.js"
