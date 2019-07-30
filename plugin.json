@@ -1,7 +1,7 @@
 {
     "library": "./index.js",
     "staticDirs": {
-        "category-notifications": "public"
+        "category-join-group": "public"
     },
     "hooks": [
         { "hook": "static:app.load", "method": "init"},
