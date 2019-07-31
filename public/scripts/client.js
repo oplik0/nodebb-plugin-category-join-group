@@ -8,8 +8,9 @@ $(document).ready(function() {
 
 		if (app.template === 'category' && app.user.uid) {
 			
-			var leaveHtml = '<button type="button" class="btn btn-default btn-warning leave"><i class="fa fa-sign-out"></i> [[categoryjoingroup:leave]]</button>';
-			var joinHtml = '<button type="button" class="btn btn-default btn-success join"><i class="fa fa-user-plus"></i> [[categoryjoingroup:join]]</button>';
+			var leaveHtml = '<button type="button" class="btn btn-default btn-warning leave"><i class="fa fa-times"></i> [[categoryjoingroup:leave]]</button>';
+			var joinHtml = '<button type="button" class="btn btn-default btn-success join"><i class="fa fa-plus"></i> [[categoryjoingroup:join]]</button>';
+			var pendingHtml = '<button type="button" class="btn btn-default btn-success pending" disabled><i class="fa fa-clock-o"></i> [[categoryjoingroup:pending]]</button>';
 
 			var cid = ajaxify.data.cid;
 			socket.emit('plugins.categoryJoinGroup.exists', {cid: cid}, function(err, exists) {
@@ -34,8 +35,12 @@ $(document).ready(function() {
 							if (err) {
 								return app.alertError(err.message);
 							}
-
-							var btn = isMember ? leaveHtml : joinHtml;
+							if (isMember!='pending') {
+								var btn = isMember ? leaveHtml : joinHtml;
+							}
+							else {
+								var btn = pendingHtml;
+							}
 							translator.translate(btn, function (translated) {
 								$('[component="category/controls"]').prepend($(translated));
 							});

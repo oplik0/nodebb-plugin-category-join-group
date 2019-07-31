@@ -1,4 +1,5 @@
 {
 	"join": "Join",
-	"leave": "Leave"
+	"leave": "Leave",
+	"pending": "Membership Pending"
 }
