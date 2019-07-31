@@ -8,9 +8,9 @@ $(document).ready(function() {
 
 		if (app.template === 'category' && app.user.uid) {
 			
-			var leaveHtml = '<button type="button" class="btn btn-default btn-danger leave"><i class="fa fa-times"></i> [[categoryjoingroup:leave]]</button>';
-			var joinHtml = '<button type="button" class="btn btn-default btn-success join"><i class="fa fa-plus"></i> [[categoryjoingroup:join]]</button>';
-			var pendingHtml = '<button type="button" class="btn btn-default btn-warning pending" disabled><i class="fa fa-clock-o"></i> [[categoryjoingroup:pending]]</button>';
+			var leaveHtml = '<button type="button" class="btn btn-default btn-danger leave"><i class="fa fa-times"></i><span class="hidden-sm hidden-xs"> [[categoryjoingroup:leave]]</span></button>';
+			var joinHtml = '<button type="button" class="btn btn-default btn-success join"><i class="fa fa-plus"></i><span class="hidden-sm hidden-xs"> [[categoryjoingroup:join]]</span></button>';
+			var pendingHtml = '<button type="button" class="btn btn-default btn-warning pending" disabled><i class="fa fa-clock-o"></i><span class="hidden-sm hidden-xs"> [[categoryjoingroup:pending]]</span></button>';
 
 			var cid = ajaxify.data.cid;
 			socket.emit('plugins.categoryJoinGroup.exists', {cid: cid}, function(err, exists) {
