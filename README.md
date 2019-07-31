@@ -1,3 +1,4 @@
+![](https://packages.nodebb.org/api/v1/plugins/nodebb-plugin-category-join-group/compatibility.png)
 # Category Join Group
 
 This plugin allows users to join a group of the same name as a category from the category view.
