@@ -11,7 +11,7 @@ $(document).ready(function() {
 			var leaveHtml = '<button type="button" class="btn btn-default btn-danger leave"><i class="fa fa-times"></i><span class="hidden-sm hidden-xs"> [[categoryjoingroup:leave]]</span></button>';
 			var joinHtml = '<button type="button" class="btn btn-default btn-success join"><i class="fa fa-plus"></i><span class="hidden-sm hidden-xs"> [[categoryjoingroup:join]]</span></button>';
 			var pendingHtml = '<button type="button" class="btn btn-default btn-warning pending" disabled><i class="fa fa-clock-o"></i><span class="hidden-sm hidden-xs"> [[categoryjoingroup:pending]]</span></button>';
-
+			var translatedConfirm;
 			var cid = ajaxify.data.cid;
 			socket.emit('plugins.categoryJoinGroup.exists', {cid: cid}, function(err, exists) {
 				if (exists && !err) {
@@ -22,9 +22,7 @@ $(document).ready(function() {
 								$('.category').on('click', className, function() {
 									var confirmed;
 									if (className === '.leave'){
-										translator.translate('[[categoryjoingroup:confirm]]', function (translated) {
-											confirmed = confirm(translated);
-										});
+										confirmed = confirm(translatedConfirm);
 									}
 									else {
 										confirmed = true;
@@ -55,7 +53,9 @@ $(document).ready(function() {
 							translator.translate(btn, function (translated) {
 								$('[component="category/controls"]').prepend($(translated));
 							});
-
+							translator.translate('[[categoryjoingroup:confirm]]', function (translated) {
+								translatedConfirm = translated;
+							});
 							handleClick('.join', 'plugins.categoryJoinGroup.join');
 							handleClick('.leave', 'plugins.categoryJoinGroup.leave');
 						});
