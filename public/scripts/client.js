@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 		if (app.template === 'category' && app.user.uid) {
 			
-			var leaveHtml = '<button type="button" class="btn btn-default btn-warning leave"><i class="fa fa-times"></i> [[categoryjoingroup:leave]]</button>';
+			var leaveHtml = '<button type="button" class="btn btn-default btn-danger leave"><i class="fa fa-times"></i> [[categoryjoingroup:leave]]</button>';
 			var joinHtml = '<button type="button" class="btn btn-default btn-success join"><i class="fa fa-plus"></i> [[categoryjoingroup:join]]</button>';
 			var pendingHtml = '<button type="button" class="btn btn-default btn-success pending" disabled><i class="fa fa-clock-o"></i> [[categoryjoingroup:pending]]</button>';
 
