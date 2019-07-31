@@ -6,6 +6,7 @@
 		<div class="col-sm-6 col-xs-12">
 			<div class="form-group">
 				<label>Category Groups Setting</label>
+				<p>There are no settings yet, but I don't feel like removing the ACP because I might add something here in the future</p>
 			</div>
 		</div>
 	</div>
