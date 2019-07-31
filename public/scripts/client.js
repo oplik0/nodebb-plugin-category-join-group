@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 			var cid = ajaxify.data.cid;
 			socket.emit('plugins.categoryJoinGroup.exists', {cid: cid}, function(err, exists) {
-				if (exists) {
+				if (exists && !err) {
 					require(['translator'], function (translator) {
 						socket.emit('plugins.categoryJoinGroup.isMember', {cid: cid}, function(err, isMember) {
 
