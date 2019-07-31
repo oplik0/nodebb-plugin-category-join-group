@@ -20,11 +20,14 @@ $(document).ready(function() {
 
 							function handleClick(className, method) {
 								$('.category').on('click', className, function() {
-									var confirmed = true;
+									var confirmed;
 									if (className === '.leave'){
 										translator.translate('[[categoryjoingroup:confirm]]', function (translated) {
 											confirmed = confirm(translated);
 										});
+									}
+									else {
+										confirmed = true;
 									}
 									if (confirmed) {
 										socket.emit(method, {cid: cid}, function(err) {
