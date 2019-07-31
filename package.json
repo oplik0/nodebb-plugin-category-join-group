@@ -1,11 +1,11 @@
 {
   "name": "nodebb-plugin-category-join-group",
   "version": "3.3.8",
-  "description": "Category notifications",
+  "description": "Plugin that allows you to join groups (of the same name a category) from the category view",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/NodeBB/nodebb-plugin-category-join-group"
+    "url": "https://github.com/oplik0/nodebb-plugin-category-join-group"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,16 +13,22 @@
   "keywords": [
     "nodebb",
     "plugin",
-    "notification",
+    "group",
+    "join",
     "category"
   ],
-  "author": "oplik0",
+  "author": {
+    "name": "oplik0",
+    "email": "opliko.reg+npm@protonmail.com",
+    "url": "https://wieloswiat.pl"
+},
   "license": "MIT",
   "dependencies": {
     "async": "~0.9.0",
     "winston": "2.1.0"
   },
+  "readmeFilename": "README.md",
   "nbbpm": {
-    "compatibility": "^1.5.0"
+    "compatibility": "^1.11.0"
   }
 }
