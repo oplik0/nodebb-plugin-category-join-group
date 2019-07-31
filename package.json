@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-category-join-group",
-  "version": "3.3.6",
+  "version": "3.3.7",
   "description": "Category notifications",
   "main": "index.js",
   "repository": {
