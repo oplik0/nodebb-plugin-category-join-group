@@ -20,15 +20,23 @@ $(document).ready(function() {
 
 							function handleClick(className, method) {
 								$('.category').on('click', className, function() {
-									socket.emit(method, {cid: cid}, function(err) {
-										if (err) {
-											return app.alertError(err.message);
-										}
-										var btn = className === '.join' ? leaveHtml : joinHtml;
-										translator.translate(btn, function(translated) {
-											$(className).replaceWith($(translated));
+									var confirmed = true;
+									if (className === '.leave'){
+										translator.translate('[[categoryjoingroup:confirm]]', function (translated) {
+											confirmed = confirm(translated);
 										});
-									});
+									}
+									if (confirmed) {
+										socket.emit(method, {cid: cid}, function(err) {
+											if (err) {
+												return app.alertError(err.message);
+											}
+											var btn = className === '.join' ? leaveHtml : joinHtml;
+											translator.translate(btn, function(translated) {
+												$(className).replaceWith($(translated));
+											});
+										});
+									}
 								});
 							}
 

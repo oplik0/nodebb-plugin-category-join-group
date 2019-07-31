@@ -1,5 +1,6 @@
 {
 	"join": "Join",
 	"leave": "Leave",
-	"pending": "Membership Pending"
+	"pending": "Membership Pending",
+	"confirm": "Are you sure you want to leave the group?"
 }

@@ -1,5 +1,6 @@
 {
 	"join": "Dołącz",
 	"leave": "Opuść",
-	"pending": "Oczekujące zaproszenie"
+	"pending": "Oczekujące zaproszenie",
+	"confirm": "Czy na pewno chcesz opuścić grupę?"
 }
